@@ -1,10 +1,10 @@
-import type { Show } from "~/lib/types"
-import { ShowsCarousel } from "~/components/show-carousel"
-import { ERR } from "~/lib/utils"
-import { env } from "~/env.mjs"
+import type { Show } from "\~/lib/types"
+import { ShowsCarousel } from "\~/components/show-carousel"
+import { ERR } from "\~/lib/utils"
+import { env } from "\~/env.mjs"
 import { ShowBg } from "../../../components/show-bg"
 import { ShowHero } from "../../../components/show-hero"
-import { pickRandomShow } from "~/lib/utils"
+import { pickRandomShow } from "\~/lib/utils"
 
 export default async function NewAndPopular() {
   const newAndPopularShows = await getNewAndPopularShows()
@@ -17,19 +17,19 @@ export default async function NewAndPopular() {
         <ShowHero show={randomShow} />
         <div className="space-y-10">
           <ShowsCarousel
-            title="Popular Movies"
+            title="Популярные фильмы"
             shows={newAndPopularShows.popularMovies}
           />
           <ShowsCarousel
-            title="Popular TV Shows"
+            title="Популярные сериалы"
             shows={newAndPopularShows.popularTvs}
           />
           <ShowsCarousel
-            title="Trending Movies"
+            title="Фильмы в тренде"
             shows={newAndPopularShows.trendingMovies}
           />
           <ShowsCarousel
-            title="Trending TV Shows"
+            title="Сериалы в тренде"
             shows={newAndPopularShows.trendingTvs}
           />
         </div>
