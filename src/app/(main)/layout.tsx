@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { currentUser, SignedOut, auth, SignOutButton } from "@clerk/nextjs"
 import { Suspense } from "react"
-import { Button } from "\~/components/ui/button"
+import { Button } from "~/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,12 +10,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "\~/components/ui/dropdown-menu"
-import { Skeleton } from "\~/components/ui/skeleton"
-import { db } from "\~/db/client"
-import { accounts, profiles } from "\~/db/schema"
+} from "~/components/ui/dropdown-menu"
+import { Skeleton } from "~/components/ui/skeleton"
+import { db } from "~/db/client"
+import { accounts, profiles } from "~/db/schema"
 import { eq } from "drizzle-orm"
-import { ERR } from "\~/lib/utils"
+import { ERR } from "~/lib/utils"
 import {
   Search,
   Bell,
@@ -30,9 +30,9 @@ import {
   User,
   BadgeCheck,
 } from "lucide-react"
-import { LinkButton } from "\~/components/link-button"
-import { getAccountWithActiveProfile } from "\~/lib/server-fetchers"
-import { OverlayScrollbar } from "\~/components/overlay-scrollbar"
+import { LinkButton } from "~/components/link-button"
+import { getAccountWithActiveProfile } from "~/lib/server-fetchers"
+import { OverlayScrollbar } from "~/components/overlay-scrollbar"
 
 export default function ShowsLayout({
   children,
@@ -292,5 +292,4 @@ async function createAccountAndProfile() {
         user.username ?? user.firstName ?? user.emailAddresses[0]!.emailAddress,
     })
     .onConflictDoNothing()
-  return getAccountWithActiveProfile()
-}
+  return getAccountWithActive
