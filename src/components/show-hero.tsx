@@ -9,7 +9,7 @@ export function ShowHero({ show }: { show: Show }) {
       <p className="text-3xl font-bold md:text-4xl">{show.title}</p>
       <div className="flex space-x-2 text-xs font-semibold md:text-sm">
         <p className="text-green-600">
-          {Math.round((show.vote_average * 100) / 10)}% Match
+          {Math.round((show.vote_average * 100) / 10)}% совпадение
         </p>
         <p>{show.release_date ?? show.first_air_date}</p>
       </div>
@@ -18,21 +18,21 @@ export function ShowHero({ show }: { show: Show }) {
       </p>
       <div className="flex items-center gap-3">
         <Link
-          href={`/show/${show.id}?mediaType=${show.title ? "movie" : "tv"}`}
+          href={`/show/\( {show.id}?mediaType= \){show.title ? "movie" : "tv"}`}
           scroll={false}
         >
           <Button className="flex gap-1.5">
             <Play fill="black" />
-            Play
+            Смотреть
           </Button>
         </Link>
         <Link
-          href={`/show/${show.id}?mediaType=${show.title ? "movie" : "tv"}`}
+          href={`/show/\( {show.id}?mediaType= \){show.title ? "movie" : "tv"}`}
           scroll={false}
         >
           <Button variant="outline" className="flex gap-1.5">
             <Info />
-            More Info
+            Подробнее
           </Button>
         </Link>
       </div>
