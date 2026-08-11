@@ -1,8 +1,8 @@
-import { ShowsCarousel } from "~/components/show-carousel"
-import { getShows } from "~/lib/client-fetchers"
+import { ShowsCarousel } from "\~/components/show-carousel"
+import { getShows } from "\~/lib/client-fetchers"
 import { ShowBg } from "../../../components/show-bg"
 import { ShowHero } from "../../../components/show-hero"
-import { pickRandomShow } from "~/lib/utils"
+import { pickRandomShow } from "\~/lib/utils"
 
 export default async function TvShows() {
   const allShows = await getShows("tv")
@@ -14,16 +14,16 @@ export default async function TvShows() {
       <main>
         <ShowHero show={randomShow} />
         <div className="space-y-10">
-          <ShowsCarousel title="Trending" shows={allShows.trending} />
-          <ShowsCarousel title="Top Rated" shows={allShows.topRated} />
+          <ShowsCarousel title="В тренде" shows={allShows.trending} />
+          <ShowsCarousel title="Высокий рейтинг" shows={allShows.topRated} />
           <ShowsCarousel
-            title="Action Thriller"
+            title="Боевики и триллеры"
             shows={allShows.actionThriller}
           />
-          <ShowsCarousel title="Comedy" shows={allShows.comedy} />
-          <ShowsCarousel title="Horror" shows={allShows.horror} />
-          <ShowsCarousel title="Romance" shows={allShows.romance} />
-          <ShowsCarousel title="Documentary" shows={allShows.documentary} />
+          <ShowsCarousel title="Комедии" shows={allShows.comedy} />
+          <ShowsCarousel title="Ужасы" shows={allShows.horror} />
+          <ShowsCarousel title="Мелодрамы" shows={allShows.romance} />
+          <ShowsCarousel title="Документальные" shows={allShows.documentary} />
         </div>
       </main>
     </>
