@@ -1,8 +1,8 @@
-import { ShowsCarousel } from "\~/components/show-carousel"
-import { getShows } from "\~/lib/client-fetchers"
+import { ShowsCarousel } from "~/components/show-carousel"
+import { getShows } from "~/lib/client-fetchers"
 import { ShowBg } from "../../../components/show-bg"
 import { ShowHero } from "../../../components/show-hero"
-import { pickRandomShow } from "\~/lib/utils"
+import { pickRandomShow } from "~/lib/utils"
 
 export default async function TvShows() {
   const allShows = await getShows("tv")
