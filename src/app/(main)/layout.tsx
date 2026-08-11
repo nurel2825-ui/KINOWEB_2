@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { currentUser, SignedOut, auth, SignOutButton } from "@clerk/nextjs"
 import { Suspense } from "react"
-import { Button } from "~/components/ui/button"
+import { Button } from "\~/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,12 +10,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu"
-import { Skeleton } from "~/components/ui/skeleton"
-import { db } from "~/db/client"
-import { accounts, profiles } from "~/db/schema"
+} from "\~/components/ui/dropdown-menu"
+import { Skeleton } from "\~/components/ui/skeleton"
+import { db } from "\~/db/client"
+import { accounts, profiles } from "\~/db/schema"
 import { eq } from "drizzle-orm"
-import { ERR } from "~/lib/utils"
+import { ERR } from "\~/lib/utils"
 import {
   Search,
   Bell,
@@ -30,9 +30,9 @@ import {
   User,
   BadgeCheck,
 } from "lucide-react"
-import { LinkButton } from "~/components/link-button"
-import { getAccountWithActiveProfile } from "~/lib/server-fetchers"
-import { OverlayScrollbar } from "~/components/overlay-scrollbar"
+import { LinkButton } from "\~/components/link-button"
+import { getAccountWithActiveProfile } from "\~/lib/server-fetchers"
+import { OverlayScrollbar } from "\~/components/overlay-scrollbar"
 
 export default function ShowsLayout({
   children,
@@ -179,22 +179,16 @@ function MainMenu() {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger className="flex items-center gap-1.5 md:hidden">
-        <svg viewBox="0 0 24 24" className="h-5 w-5 text-red-600">
-          <path
-            fill="currentColor"
-            d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.913.002-22.95zM5.398 1.05V24c1.873-.225 2.81-.312 4.715-.398v-9.22z"
-          ></path>
-        </svg>
+        <span className="flex h-6 w-6 items-center justify-center rounded bg-red-600 text-sm font-black text-white">
+          K
+        </span>
         <h2 className="font-semibold">Меню</h2>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel className="flex gap-1.5">
-          <svg viewBox="0 0 24 24" className="w-5 text-red-600">
-            <path
-              fill="currentColor"
-              d="M5.398 0v.006c3.028 8.556 5.37 15.175 8.348 23.596 2.344.058 4.85.398 4.854.398-2.8-7.924-5.923-16.747-8.487-24zm8.489 0v9.63L18.6 22.951c-.043-7.86-.004-15.913.002-22.95zM5.398 1.05V24c1.873-.225 2.81-.312 4.715-.398v-9.22z"
-            ></path>
-          </svg>
+        <DropdownMenuLabel className="flex items-center gap-1.5">
+          <span className="flex h-5 w-5 items-center justify-center rounded bg-red-600 text-xs font-black text-white">
+            K
+          </span>
           KINOWEB
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -292,4 +286,5 @@ async function createAccountAndProfile() {
         user.username ?? user.firstName ?? user.emailAddresses[0]!.emailAddress,
     })
     .onConflictDoNothing()
-  return getAccountWithActive
+  return getAccountWithActiveProfile()
+}
