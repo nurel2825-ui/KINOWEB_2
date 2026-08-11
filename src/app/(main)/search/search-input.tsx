@@ -1,5 +1,5 @@
 "use client"
-import { Input } from "~/components/ui/input"
+import { Input } from "\~/components/ui/input"
 import { useEffect, useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
 import { useRouter } from "next/navigation"
@@ -19,7 +19,7 @@ export function SearchInput({ initialQuery, ...props }: PageProps) {
   }, [query])
   return (
     <Input
-      placeholder="search keyword"
+      placeholder="Поиск фильмов и сериалов..."
       defaultValue={initialQuery}
       onChange={(e) => debounced(e.target.value)}
       autoFocus
