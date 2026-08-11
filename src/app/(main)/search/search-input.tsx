@@ -1,5 +1,5 @@
 "use client"
-import { Input } from "\~/components/ui/input"
+import { Input } from "~/components/ui/input"
 import { useEffect, useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
 import { useRouter } from "next/navigation"
