@@ -7,6 +7,7 @@ import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { createFilm } from "~/actions/films"
 
 export default function AddFilmPage() {
   const router = useRouter()
@@ -39,18 +40,34 @@ export default function AddFilmPage() {
     setError("")
 
     try {
-      // Пока просто проверка, что обязательные поля заполнены
       if (!form.title || !form.vkVideoUrl) {
         setError("Название и ссылка на VK обязательны")
         setLoading(false)
         return
       }
 
-      // Здесь позже подключим сохранение в базу
-      console.log("Данные фильма:", form)
-      alert("Форма работает! Данные пока выводятся в консоль. Следующий шаг — сохранение в базу.")
-      
-      // router.push("/admin/films")
+      const result = await createFilm({
+        title: form.title,
+        description: form.description || undefined,
+        posterUrl: form.posterUrl || undefined,
+        vkVideoUrl: form.vkVideoUrl,
+        year: form.year ? Number(form.year) : undefined,
+        country: form.country || undefined,
+        studio: form.studio || undefined,
+        type: form.type,
+        episodesTotal: form.episodesTotal ? Number(form.episodesTotal) : undefined,
+        duration: form.duration || undefined,
+        announcement: form.announcement || undefined,
+      })
+
+      if (result.error) {
+        setError(result.error)
+        setLoading(false)
+        return
+      }
+
+      alert("Фильм успешно добавлен!")
+      router.push("/")
     } catch (err) {
       setError("Ошибка при сохранении")
     } finally {
