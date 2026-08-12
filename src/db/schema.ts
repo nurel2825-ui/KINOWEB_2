@@ -93,7 +93,7 @@ export const myShowsRelation = relations(myShows, ({ one }) => ({
 
 // ========== НОВАЯ ТАБЛИЦА ДЛЯ СВОИХ ФИЛЬМОВ ==========
 export const films = pgTable("films", {
-  id: serial("id").primaryKey(), // Использование serial убирает ошибку совместимости
+  id: serial("id").primaryKey(),
   title: varchar("title", { length: 512 }).notNull(),
   slug: varchar("slug", { length: 512 }).notNull().unique(),
   description: text("description"),
@@ -102,10 +102,10 @@ export const films = pgTable("films", {
   year: integer("year"),
   country: varchar("country", { length: 256 }),
   studio: varchar("studio", { length: 256 }),
-  type: varchar("type", { length: 64 }).default("movie"), // movie | series
+  type: varchar("type", { length: 64 }).default("movie"),
   episodesTotal: integer("episodes_total"),
-  duration: varchar("duration", { length: 64 }), // например "24 мин"
-  announcement: text("announcement"), // необязательный текст (перерыв и т.д.)
+  duration: varchar("duration", { length: 64 }),
+  announcement: text("announcement"),
   isPublished: boolean("is_published").default(true).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
