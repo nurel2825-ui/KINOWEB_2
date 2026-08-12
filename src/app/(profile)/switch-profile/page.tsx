@@ -16,7 +16,7 @@ export default async function SwitchProfilePage() {
       <main className="grid min-h-screen place-content-center">
         <section className="space-y-8">
           <h1 className="text-center text-3xl md:text-5xl">
-            Who&apos;s Watching
+            Кто смотрит?
           </h1>
           <ul className="grid grid-cols-2 gap-4 md:flex">
             {account.profiles.map((profile) => (
