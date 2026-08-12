@@ -21,7 +21,7 @@ export default function AddProfilePage() {
     const { data, validationError } = await createProfile({ name })
     toast({
       description:
-        data?.message ?? validationError?.name ?? "Name must be unique",
+        data?.message ?? validationError?.name ?? "Имя должно быть уникальным",
     })
     if (data) router.replace("/manage-profile")
   }
@@ -35,9 +35,9 @@ export default function AddProfilePage() {
       </Button>
       <main className="grid min-h-screen place-content-center place-items-center gap-y-8">
         <div className="w-full space-y-3 border-b border-white/25 pb-3 text-center">
-          <h1 className="text-3xl md:text-5xl">Add Profile</h1>
+          <h1 className="text-3xl md:text-5xl">Добавить профиль</h1>
           <p className="text-white/60">
-            Add a profile for another person watching Netflix.
+            Добавьте профиль для другого человека, который будет смотреть KINOWEB.
           </p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -47,9 +47,9 @@ export default function AddProfilePage() {
           width="135"
           height="135"
         />
-        <Input placeholder="name" onChange={(e) => debounced(e.target.value)} />
+        <Input placeholder="Имя" onChange={(e) => debounced(e.target.value)} />
         {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-        <Button onClick={doAdd}>Save</Button>
+        <Button onClick={doAdd}>Сохранить</Button>
       </main>
     </>
   )
