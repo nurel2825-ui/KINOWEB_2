@@ -50,7 +50,7 @@ export function PlanSelector({
               : false
           }
         >
-          {activeSubscription !== "free" ? "Edit" : "Subscribe"}
+          {activeSubscription !== "free" ? "Изменить" : "Подписаться"}
         </Button>
       </div>
     </>
