@@ -29,6 +29,7 @@ import {
   ArrowLeftRight,
   User,
   BadgeCheck,
+  Plus,
 } from "lucide-react"
 import { LinkButton } from "~/components/link-button"
 import { getAccountWithActiveProfile } from "~/lib/server-fetchers"
@@ -101,6 +102,12 @@ function Header() {
         <Link href="/search?keyword=" aria-label="search">
           <Search />
         </Link>
+
+        {/* Кнопка добавления фильма */}
+        <Link href="/admin/films/add" aria-label="add-film">
+          <Plus className="h-6 w-6 text-red-500 hover:text-red-400" />
+        </Link>
+
         <Bell />
         <Suspense fallback={<Skeleton className="h-8 w-8" />}>
           <CustomeUserButton />
