@@ -18,7 +18,7 @@ export function ShowHero({ show }: { show: Show }) {
       </p>
       <div className="flex items-center gap-3">
         <Link
-          href={`/show/\( {show.id}?mediaType= \){show.title ? "movie" : "tv"}`}
+          href={`/show/${show.id}?mediaType=${show.title ? "movie" : "tv"}`}
           scroll={false}
         >
           <Button className="flex gap-1.5">
@@ -27,7 +27,7 @@ export function ShowHero({ show }: { show: Show }) {
           </Button>
         </Link>
         <Link
-          href={`/show/\( {show.id}?mediaType= \){show.title ? "movie" : "tv"}`}
+          href={`/show/${show.id}?mediaType=${show.title ? "movie" : "tv"}`}
           scroll={false}
         >
           <Button variant="outline" className="flex gap-1.5">
