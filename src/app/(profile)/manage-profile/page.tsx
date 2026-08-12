@@ -14,7 +14,7 @@ export default async function ManageProfilePage() {
       </Button>
       <main className="grid min-h-screen place-content-center">
         <section className="space-y-8">
-          <h1 className="text-center text-3xl md:text-5xl">Manage Profiles</h1>
+          <h1 className="text-center text-3xl md:text-5xl">Управление профилями</h1>
           <ul className="grid grid-cols-2 gap-4 md:flex">
             {account.profiles.map((profile) => (
               <div key={profile.id} className="space-y-1.5">
