@@ -28,14 +28,14 @@ export function ModalCard({ show, isSaved, ...props }: ModalCardProps) {
         </CardTitle>
         <div className="flex items-center gap-1.5">
           <p className="text-green-400">
-            {Math.round((show.vote_average * 100) / 10)}% Match
+            {Math.round((show.vote_average * 100) / 10)}% совпадение
           </p>
           <p>
             {show.release_date?.substring(0, 4) ??
               show.first_air_date?.substring(0, 4)}
           </p>
           <p className="border border-neutral-500 px-1 text-xs text-white/50">
-            EN
+            RU
           </p>
         </div>
         <CardDescription>{show.overview}</CardDescription>
@@ -51,7 +51,7 @@ export function ModalCard({ show, isSaved, ...props }: ModalCardProps) {
           />
         ) : (
           <div className="grid aspect-video animate-pulse place-content-center text-xl font-semibold">
-            No Trailer
+            Нет трейлера
           </div>
         )}
       </CardContent>
