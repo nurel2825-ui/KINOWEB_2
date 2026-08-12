@@ -9,6 +9,8 @@ import {
   uniqueIndex,
   index,
   unique,
+  text,
+  boolean,
 } from "drizzle-orm/pg-core"
 import { planTuple } from "~/lib/configs"
 
@@ -87,3 +89,23 @@ export const myShowsRelation = relations(myShows, ({ one }) => ({
     references: [profiles.id],
   }),
 }))
+
+// ========== НОВАЯ ТАБЛИЦА ДЛЯ СВОИХ ФИЛЬМОВ ==========
+export const films = pgTable("films", {
+  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  title: varchar("title", { length: 512 }).notNull(),
+  slug: varchar("slug", { length: 512 }).notNull().unique(),
+  description: text("description"),
+  posterUrl: varchar("poster_url", { length: 1024 }),
+  vkVideoUrl: varchar("vk_video_url", { length: 1024 }).notNull(),
+  year: integer("year"),
+  country: varchar("country", { length: 256 }),
+  studio: varchar("studio", { length: 256 }),
+  type: varchar("type", { length: 64 }).default("movie"), // movie | series
+  episodesTotal: integer("episodes_total"),
+  duration: varchar("duration", { length: 64 }), // например "24 мин"
+  announcement: text("announcement"), // необязательный текст (перерыв и т.д.)
+  isPublished: boolean("is_published").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+})
