@@ -16,14 +16,14 @@ export default function Error({
 
   return (
     <main className="container grid min-h-screen place-content-center space-y-5 text-center">
-      <h1 className="text-3xl font-semibold">There was a problem</h1>
+      <h1 className="text-3xl font-semibold">Произошла ошибка</h1>
       <p>{error.message}</p>
       <section className="space-x-8">
         <Button onClick={() => reset()} className="font-semibold">
-          Try again
+          Попробовать снова
         </Button>
         <Button asChild variant="secondary" className="font-semibold">
-          <a href="/">Go back home</a>
+          <a href="/">На главную</a>
         </Button>
       </section>
     </main>
