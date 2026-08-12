@@ -11,6 +11,7 @@ import {
   unique,
   text,
   boolean,
+  serial,
 } from "drizzle-orm/pg-core"
 import { planTuple } from "~/lib/configs"
 
@@ -92,7 +93,7 @@ export const myShowsRelation = relations(myShows, ({ one }) => ({
 
 // ========== НОВАЯ ТАБЛИЦА ДЛЯ СВОИХ ФИЛЬМОВ ==========
 export const films = pgTable("films", {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(), // Использование serial убирает ошибку совместимости
   title: varchar("title", { length: 512 }).notNull(),
   slug: varchar("slug", { length: 512 }).notNull().unique(),
   description: text("description"),
